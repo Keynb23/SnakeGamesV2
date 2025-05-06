@@ -1,1 +1,1 @@
-6
+[{"username": "('asd', 1)", "score": 103}, {"username": "('asd', 1)", "score": 81}, {"username": "('sad', 1)", "score": 71}]

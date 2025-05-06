@@ -1,3 +1,5 @@
+#PlayNow.py
+
 import pygame
 from MainMenu import MainMenu
 from GameLogic import SnakeGame
@@ -16,18 +18,18 @@ def run_game():
     try:
         while True:  # Main loop to allow returning to menu
             menu = MainMenu()
-            menu.run()
+            username = menu.run()
 
-            if not menu.start_game:
+            if not menu.start_game or not username:
                 break  # Exit if menu selects Exit
 
-            game = SnakeGame()
+            game = SnakeGame(username)
             while True:
                 action = game.handle_input()
                 if action == "exit":
                     break  # Exit to menu
                 if action == "restart":
-                    game = SnakeGame()  # Restart
+                    game = SnakeGame(username)  # Restart
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         pygame.quit()
